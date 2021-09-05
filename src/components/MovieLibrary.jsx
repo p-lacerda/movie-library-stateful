@@ -12,16 +12,21 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: '', // Ajeitar
     };
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
     const { movies } = this.props;
+    const { searchText } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar searchText={} /> {/* Ajeitar */}
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
