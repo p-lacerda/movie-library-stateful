@@ -14,17 +14,30 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.functionClick = this.functionClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  render() {
+  functionClick() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="" data-testid="title-input-label">
           Título
           <input type="text" name="title" data-testid="title-input" value={ title } onChange={ this.handleChange } />
@@ -53,11 +66,9 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <label htmlFor="">
-          <button type="submit" value="" data-testid="send-button" onClick={ onClick }>
+          <button type="button" data-testid="send-button" onClick={ this.functionClick }>
             Adicionar filme
           </button>
-        </label>
       </form>
     );
   }
