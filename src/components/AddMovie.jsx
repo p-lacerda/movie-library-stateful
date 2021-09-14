@@ -52,15 +52,15 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
           Título
-          {this.createInput('text', 'title', 'title-input', title)}
+          {this.createInput('title', 'text', title, 'title-input')}
         </label>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
-          { this.createInput('text', 'subtitle', 'subtitle-input', subtitle) }
+          { this.createInput('subtitle', 'text', subtitle, 'subtitle-input') }
         </label>
         <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
-          {this.createInput('text', 'imagePath', 'image-input', imagePath)}
+          {this.createInput('imagePath', 'text', imagePath, 'image-input')}
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
@@ -75,7 +75,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
-          {this.createInput('number', 'rating', 'rating-input', rating)}
+          {this.createInput('rating', 'number', rating, 'rating-input')}
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
